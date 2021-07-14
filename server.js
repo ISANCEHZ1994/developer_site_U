@@ -9,6 +9,7 @@ connectDB();
 // Init Middleware
 // New way!
 app.use(express.json({ extended: false }));
+
 // Old way!
 // app.use(bodyParser.json())
 
