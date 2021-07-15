@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    avatar:{
+    avatar:{ // using gravater we can attach a profile image to our email
         type: String
     },
     date:{

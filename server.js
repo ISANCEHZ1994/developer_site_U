@@ -1,4 +1,5 @@
 const express = require('express');
+// NOTE: Body-Parser is now included with Express!
 const connectDB = require('./Config/db');
 
 const app = express();
