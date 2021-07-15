@@ -40,7 +40,7 @@ router.post('/',[ // within the route we add another parameter - array of things
         };
 
         // get users gravater
-        const avatar = gravatar.url(email, {
+        const avatar = gravatar.url(email, { // adding defaults
             s: '200',
             r: 'pg',
             d: 'mm'
