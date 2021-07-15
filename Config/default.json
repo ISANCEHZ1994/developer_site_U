@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://ISANCHEZ94:Is092094@devconnector.aolbf.mongodb.net/DevConnector?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://ISANCHEZ94:Is092094@devconnector.aolbf.mongodb.net/DevConnector?retryWrites=true&w=majority",
+    "jwtSecret" : "kingdomhearts13"
 }
