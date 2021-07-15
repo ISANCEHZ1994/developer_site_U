@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 
@@ -35,7 +36,7 @@ router.post('/',[ // within the route we add another parameter - array of things
         // See if user exists in this case by email
         let user = await User.findOne({ email }); 
         if(user){
-            res.status(400).json({ errors: [{mgs: "User already exisits! - no stealing"}] });
+           return res.status(400).json({ errors: [{mgs: "User already exisits! - no stealing"}] });
         };
 
         // get users gravater
@@ -47,6 +48,7 @@ router.post('/',[ // within the route we add another parameter - array of things
         user = new User({ // creates new instance but does not SAVE the 'new' user
             name, 
             email,
+            avatar,
             password
         })
 
@@ -56,14 +58,13 @@ router.post('/',[ // within the route we add another parameter - array of things
         await user.save();
 
         // return jsonwebtoken  
-        res.send('user route'); 
+        res.send('user registered! => we confirmed that order cheif'); 
      } catch (error) {
 
         console.error(error);
         res.status(500).send("SERVER ERROR");
          
      }; // ends try block here!
-
 });
 
 module.exports = router;
