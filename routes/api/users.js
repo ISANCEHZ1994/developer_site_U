@@ -57,7 +57,8 @@ router.post('/',[   // within the route we add another parameter - array of thin
         // encrypt password
         const salt = await bcrypt.genSalt(10);  // this is for security - the more you have the slower it can be
         user.password = await bcrypt.hash(password, salt); // now we are saying we want to encrypt the password
-        await user.save();
+
+        await user.save(); // NOW we SAVE the new user
 
         // return jsonwebtoken  
         const payload = {
@@ -76,7 +77,7 @@ router.post('/',[   // within the route we add another parameter - array of thin
             }
         );
 
-        res.send('user registered! => we confirmed that order chief'); 
+        //res.send('user registered! => we confirmed that order chief'); 
 
      } catch (error) {
 
