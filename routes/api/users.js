@@ -38,7 +38,9 @@ router.post('/',[   // within the route we add another parameter - array of thin
         // See if user exists in this case by email
         let user = await User.findOne({ email }); 
         if(user){
-           return res.status(400).json({ errors: [{mgs: "User already exisits! - no stealing"}] });
+           return res
+           .status(400)
+           .json({ errors: [{mgs: "User already exisits! - no stealing"}] });
         };
 
         // get users gravater
@@ -77,7 +79,7 @@ router.post('/',[   // within the route we add another parameter - array of thin
             }
         );
 
-        //res.send('user registered! => we confirmed that order chief'); 
+        res.send('user registered! => we confirmed that order chief'); 
 
      } catch (error) {
 
