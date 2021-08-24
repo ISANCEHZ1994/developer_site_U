@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-// Each user will have the following fields:
-const UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({ // Each user will have the following fields:
     name:{
         type: String,
         required: true
@@ -24,4 +23,4 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-module.exports = User = mongoose.model('User', UserSchema);
+module.exports = User = mongoose.model('user', UserSchema);

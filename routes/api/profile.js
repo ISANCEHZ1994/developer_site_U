@@ -9,7 +9,6 @@ const User = require('../../Models/User');
 // @route   GET api/profile/me
 // @desc    Get Current Users Profile
 // @access  Private
-
 router.get('/me', auth, async (req, res) => {
     try {
         // the user: passing thru is going to pertain to our profile model user field => ProfileSchema userID
@@ -37,9 +36,7 @@ router.get('/me', auth, async (req, res) => {
 // @route   POST api/profile
 // @desc    Create or Update a Users Profile
 // @access  Private
-
-// we need to use the validation middleware hence the brackets!
-router.post('/', [auth,
+router.post('/', [auth,  // we need to use the validation middleware hence the brackets!
     [
         check('status', 'Status is required').not().isEmpty(),
         check('skills', 'Skills is required').not().isEmpty()
@@ -124,6 +121,71 @@ router.post('/', [auth,
 
     };
    
+});
+
+// @route   GET  api/profile
+// @desc    Get all profiles
+// @access  Public
+router.get('/', async (req, res) => {
+    try{
+        const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+
+        res.json(profiles);
+
+    }catch(err){
+
+        console.error(err.message);
+        res.status(500)
+           .send('server error - but why??')
+
+    }
+});
+
+// @route   GET  api/profile/user/:user_id
+// @desc    Get Profile by ID
+// @access  Public
+router.get('/user/:user_id', async (req, res) => {
+    try{
+        const profile = await Profile.findOne({ user: req.params.user_id }).populate('user', 
+        ['name', 'avatar']);
+
+        if(!profile) return res.status(400).json({ msg: 'Profile not found! => best try again homie' });
+
+        res.json(profile);
+
+    }catch(err){
+        console.error(err.message);
+
+        if(err.kind == "ObjectId"){
+            return res.status(400).json({ msg: 'Profile not found! => wack yo' });
+        }
+
+        res.status(500)
+           .send('server error - but why??')
+
+    }
+});
+
+// @route   DELETE  api/profile
+// @desc    DELETE a Specifc profile, user & posts
+// @access  Public
+router.delete('/', auth, async (req, res) => {
+    try{
+        // Remove Profile 
+        await Profile.findOneAndRemove({ user: req.user.id });
+
+        // Remove User
+        await User.findOneAndRemove({ _id: req.user.id });
+
+        res.json({ msg: 'user and profile deleted! => items TERMINATED'})
+
+    }catch(err){
+
+        console.error(err.message);
+        res.status(500)
+           .send('server error - but why??')
+
+    }
 });
 
 module.exports = router;

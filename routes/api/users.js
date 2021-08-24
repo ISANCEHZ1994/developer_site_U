@@ -70,7 +70,7 @@ router.post('/',[   // within the route we add another parameter - array of thin
         };
 
         jwt.sign(
-            payload,    // use the newly created jsonwebtoken - literally look up a few lines
+            payload,    // use the newly created jsonwebtoken - literally LOOK UP a few lines
             config.get('jwtSecret'), // from the config folder it'll find and use jwtSecret
             { expiresIn: 360000 }, // time till logout is optional - in this case an hour
             (err, token) => {      // a callback that takes 2 arguments
@@ -79,7 +79,7 @@ router.post('/',[   // within the route we add another parameter - array of thin
             }
         );
 
-        res.send('user registered! => we confirmed that order chief'); 
+        //res.send('user registered! => we confirmed that order chief'); 
 
      } catch (error) {
 
