@@ -64,9 +64,7 @@ router.post('/',[   // within the route we add another parameter - array of thin
 
         // return jsonwebtoken  
         const payload = {
-            user: {
-                id: user.id
-            }
+            user: { id: user.id }
         };
 
         jwt.sign(
