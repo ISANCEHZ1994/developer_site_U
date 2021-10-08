@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// automaticlly returns
+const App = () => (
+  <Fragment>
+    <h1> this is HERE </h1>
+  </Fragment>
+)
+
+// below will work but you HAVE to return to show 
+// const App = () => {
+// <Fragment>
+//   <h1> this is HERE </h1>
+// </Fragment>
+// }
 
 export default App;
