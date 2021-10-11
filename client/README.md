@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 <>======================================================================>
-FRONTEND: npm i axios react-router-dom redux react-redux redux-thunk redux-devtools-extension momenvtools-extension moment react-moment
+FRONTEND: npm i axios react-router-dom redux react-redux redux-thunk redux-devtools-extension momenvtools-extension moment react-moment uuid
 
 BACKEND: npm i express express-validator bcryptjs config gravatar jsonwebtoken mongoose request mongoose request
 
