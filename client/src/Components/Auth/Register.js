@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { setAlert } from '../../Actions/alert';
 // import axios from 'axios';
 
-const Register = (props) => {
+const Register = ({ setAlert }) => {
     const [ formData, setFormData ] = useState({
         name: '',
         email: '',
@@ -21,7 +21,9 @@ const Register = (props) => {
     const onSubmit = async e => {
         e.preventDefault();
         if(password !== password2){
-            props.setAlert("Passwords do NOT match", 'danger'); 
+          // instead of passing props to the function component pass it destructured! 
+          // props.setAlert("Passwords do NOT match", 'danger'); 
+            setAlert("Passwords do NOT match", 'danger');
             // the alertType is 'danger' => .alert-danger css
             // will be the message that gets passed to function inside of alert.js/Actions
         } else {
