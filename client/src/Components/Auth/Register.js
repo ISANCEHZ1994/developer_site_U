@@ -89,4 +89,4 @@ const Register = (props) => {
     );    
 };
 
-export default connect(null, { setAlert })(Register) ;
+export default connect(null, { setAlert })(Register);
