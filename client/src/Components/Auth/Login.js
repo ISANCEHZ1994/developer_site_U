@@ -16,7 +16,7 @@ const Login = () => {
     const onSubmit = e => {
         e.preventDefault();
         console.log('SUCCESS')
-    }
+    };
 
     return (
         <section className="container">
@@ -58,8 +58,6 @@ const Login = () => {
       </section>
     );
 };
-
-
 
 export default Login;
 
