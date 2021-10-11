@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from 'react'
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+// import axios from 'axios';
 
 const Register = () => {
-
     const [ formData, setFormData ] = useState({
         name: '',
         email: '',
@@ -15,34 +16,41 @@ const Register = () => {
 
       // we want to keep all other items the same expect for the specifc NAME OF THE INPUT we are changing
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
     // this would've been for only the NAME! 
     // const changeName = e => setFormData({...formData, name: e.target.value}); 
+
     const onSubmit = async e => {
         e.preventDefault();
         if(password !== password2){
             console.log("Passwords do not match!");
         } else {
-           const newUser = {
-               name,
-               email,
-               password
-           };
+            console.log(formData, "SUCCESSFUL")
 
-           try {
-               const config = {
-                   headers: {
-                       'Content-Type' : 'application/json'
-                   }
-               };
 
-               const body = JSON.stringify(newUser);
+            // BELOW is an example of how to create a new user!!
+        //    const newUser = {
+        //        name,
+        //        email,
+        //        password
+        //    };
 
-               const res = await axios.post('/api/users', body, config);
-               console.log(res.data);
+        //    try {
+        //        const config = {
+        //            headers: {
+        //                'Content-Type' : 'application/json'
+        //            }
+        //        };
 
-           } catch (err) {
-               console.error(err.response.data);
-           };
+        //        const body = JSON.stringify(newUser);
+
+        //        // the string below will lead to our API Routes!
+        //        const res = await axios.post('/api/users', body, config);
+        //        console.log(res.data);
+
+        //    } catch (err) {
+        //        console.error(err.response.data);
+        //    };
         };
     };
     
@@ -102,7 +110,7 @@ const Register = () => {
         <input type="submit" className="btn btn-primary" value="Register" />
       </form>
       <p className="my-1">
-        Already have an account? <a href="login.html">Sign In</a>
+        Already have an account? <Link to="/login">Sign In</Link>
       </p>
    
     </Fragment>
