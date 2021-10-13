@@ -32,6 +32,31 @@ const Register = ({ setAlert }) => {
           // comes from ACTIONS folder (alert.js) take takes in two arguments
         } else {
             console.log(formData, "SUCCESS");
+            
+            // BELOW is an example of how to create a new user!!
+          
+        //    const newUser = {
+        //        name,
+        //        email,
+        //        password
+        //    };
+
+        //    try {
+        //        const config = {
+        //            headers: {
+        //                'Content-Type' : 'application/json'
+        //            }
+        //        };
+
+        //        const body = JSON.stringify(newUser);
+
+        //        // the string below will lead to our API Routes!
+        //        const res = await axios.post('/api/users', body, config);
+        //        console.log(res.data);
+
+        //    } catch (err) {
+        //        console.error(err.response.data);
+        //    };
 
         };
     };
@@ -93,7 +118,6 @@ const Register = ({ setAlert }) => {
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
-   
    </Fragment>
     );    
 };

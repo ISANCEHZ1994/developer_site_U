@@ -1,4 +1,4 @@
-import { SET_ALERT } from "./types";
+import { REMOVE_ALERT, SET_ALERT } from "./types";
 import { v4 as uuidv4 } from 'uuid';
 
 // we want to be able to dispatch more than one action.type so we add [ => dispatch => ] 
@@ -19,6 +19,11 @@ export const setAlert = ( msg, alertType ) => dispatch => {
         type: SET_ALERT,
         payload: { msg, alertType, id }
     });
+
+    // setTimeOut() is a funtion that takes in a function
+    setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), 6000);
+    // if we look back into our alert.js reducers 
+    // we can see that the payload id will match with the alert id and remove it from the array - filter()
     
 
 };
