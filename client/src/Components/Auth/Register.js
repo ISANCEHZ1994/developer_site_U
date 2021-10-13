@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../Actions/alert';
+import PropTypes from 'prop-types';
 // import axios from 'axios';
 
 const Register = ({ setAlert }) => {
@@ -81,7 +82,11 @@ const Register = ({ setAlert }) => {
             onChange={ (e) => onChange(e) }
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
+        <input 
+          type="submit" 
+          className="btn btn-primary" 
+          value="Register" 
+        />
       </form>
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
@@ -90,5 +95,9 @@ const Register = ({ setAlert }) => {
    </Fragment>
     );    
 };
+
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired 
+}
 
 export default connect(null, { setAlert })(Register);
