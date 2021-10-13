@@ -10,7 +10,6 @@ export const setAlert = ( msg, alertType ) => dispatch => {
     // below we are calling our setAlert that's in the REDUCER - the type is SET_ALERT
     // will also need the payload because that's what we are asking to be returned
     // this object above represents what will go inside of the initalstate array inside alert.js/reducer
-
     /* 
     ***INSIDE of alert.js/reducer***
      case SET_ALERT:
