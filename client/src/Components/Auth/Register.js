@@ -7,7 +7,7 @@ import { setAlert } from '../../Actions/alert';
 import PropTypes from 'prop-types';
 
 // now that we passed the action from connnect()() we can now use props.setAlert to actually use it in this component
-// destructered it!
+// destructered it! so now we just use setAlert();
 const Register = ({ setAlert }) => {
     const [ formData, setFormData ] = useState({
         name: '',
