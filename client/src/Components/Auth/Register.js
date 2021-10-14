@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 // we want to call our created function setAlert from our actions folder so we must import
 // whenever we want to use an action we have to pass it thru connect()() at the bottom 
 import { setAlert } from '../../Actions/alert';
+// be careful of naming conventions also added to connect at the bottom 
+import { register } from '../../Actions/auth';
 import PropTypes from 'prop-types';
 
 // now that we passed the action from connnect()() we can now use props.setAlert to actually use it in this component
 // destructered it! so now we just use setAlert();
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
+
     const [ formData, setFormData ] = useState({
         name: '',
         email: '',
@@ -27,37 +30,16 @@ const Register = ({ setAlert }) => {
         if(password !== password2){
           // instead of passing props to the function component pass it destructured! 
           // props.setAlert("Passwords do NOT match", 'danger'); 
-            setAlert("Passwords do NOT match", 'danger'); 
+          setAlert("Passwords do NOT match", 'danger'); 
           // the alertType is 'danger' => .alert-danger css you can check inside of App.css
           // comes from ACTIONS folder (alert.js) take takes in two arguments
+          console.log('REGISTERATION FAIL!');
+
         } else {
-            console.log(formData, "SUCCESS");
-            
-            // BELOW is an example of how to create a new user!!
+          // we are able to get these variables because remember we destructered it above!
+          register({ name, email, password });
+          console.log(formData, "SUCCESS");
           
-        //    const newUser = {
-        //        name,
-        //        email,
-        //        password
-        //    };
-
-        //    try {
-        //        const config = {
-        //            headers: {
-        //                'Content-Type' : 'application/json'
-        //            }
-        //        };
-
-        //        const body = JSON.stringify(newUser);
-
-        //        // the string below will lead to our API Routes!
-        //        const res = await axios.post('/api/users', body, config);
-        //        console.log(res.data);
-
-        //    } catch (err) {
-        //        console.error(err.response.data);
-        //    };
-
         };
     };
     
@@ -73,7 +55,7 @@ const Register = ({ setAlert }) => {
             name="name"
             value={ name }
             onChange={ (e) => onChange(e) }
-            required
+            // required
           />
         </div>
         <div className="form-group">
@@ -83,7 +65,7 @@ const Register = ({ setAlert }) => {
             name="email"
             value={ email }
             onChange={ (e) => onChange(e) }
-            required
+            // required
           />
           <small className="form-text">
             This site uses Gravatar so if you want a profile image use a Gravatar email
@@ -94,7 +76,7 @@ const Register = ({ setAlert }) => {
             type="password"
             placeholder="Password"
             name="password"
-            minLength="6"
+            // minLength="6"
             value={ password }
             onChange={ (e) => onChange(e) }
           />
@@ -104,7 +86,7 @@ const Register = ({ setAlert }) => {
             type="password"
             placeholder="Confirm Password"
             name="password2"
-            minLength="6"
+            // minLength="6"
             value={ password2 }
             onChange={ (e) => onChange(e) }
           />
@@ -123,10 +105,11 @@ const Register = ({ setAlert }) => {
 };
 
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired 
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 };
 
 // using connect()() from redux
 // whenever we want to use an action we have to pass it thru connect
 // connect()() takes in two arguements: any state that you want to map, an object with any actions you want to use
-export default connect(null, { setAlert })(Register);
+export default connect( null, { setAlert, register } )(Register);
