@@ -34,12 +34,10 @@ const Register = ({ setAlert, register }) => {
           // the alertType is 'danger' => .alert-danger css you can check inside of App.css
           // comes from ACTIONS folder (alert.js) take takes in two arguments
           console.log('REGISTERATION FAIL!');
-
         } else {
           // we are able to get these variables because remember we destructered it above!
           register({ name, email, password });
-          console.log(formData, "SUCCESS");
-          
+          console.log(formData, "SUCCESS");          
         };
     };
     
