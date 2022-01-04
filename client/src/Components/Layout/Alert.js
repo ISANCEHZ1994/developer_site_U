@@ -9,8 +9,8 @@ const Alert = ({ alerts }) => // since we are only using one expression we don't
                 <div key={ alert.id } className={`alert alert-${ alert.alertType }`}>
                     { alert.msg }
                 </div>
-            )
-        );
+                )
+            );
 
 Alert.propTypes = {
     alerts: PropTypes.array.isRequired

@@ -11,11 +11,14 @@ export const register = ({ name, email, password }) => async dispatch => {
             'Content-Type' : 'application/json'
         }
     };
-    
+
+    // preparing data to send
     const body = JSON.stringify({ name, email, password });
 
     try {
+        // we are making a post request that takes in the end point, body and config
         const res = await axios.post('/api/users', body, config);
+        // if above is successful we want to dispatch action 
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data // here is the token returning!
