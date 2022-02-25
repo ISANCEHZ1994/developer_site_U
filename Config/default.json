@@ -1,3 +1,6 @@
 {
-    "mongoURI": "mongodb+srv://ISANCHEZ94:Is092094@devconnector.aolbf.mongodb.net/DevConnector?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://ISANCHEZ94:Is092094@devconnector.aolbf.mongodb.net/DevConnector?retryWrites=true&w=majority",
+    "jwtSecret" : "kingdomhearts13",
+    "githubClientId": "a113f93708bfbe77b8ca",
+    "githubSecret": "d8aad0f4431acf5fac75713998b2f91d41f7d62c"
 }
