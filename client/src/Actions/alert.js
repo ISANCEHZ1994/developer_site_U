@@ -23,8 +23,7 @@ export const setAlert = ( msg, alertType ) => dispatch => {
     // setTimeOut() is a funtion that takes in a function
     setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), 6000);
     // if we look back into our alert.js reducers 
-    // we can see that the payload id will match with the alert id and remove it from the array - filter()
-    
+    // we can see that the payload id will match with the alert id and remove it from the array - filter()   
 
 };
 

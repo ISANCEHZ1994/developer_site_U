@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { REGISTER_SUCCESS, REGISTER_FAIL } from './types';
-// using below to loop thru the errors if any
+// using below to loop thru the errors and show them if any
 import { setAlert } from './alert';
 
 // Register User
@@ -11,7 +11,6 @@ export const register = ({ name, email, password }) => async dispatch => {
             'Content-Type' : 'application/json'
         }
     };
-
     // preparing data to send
     const body = JSON.stringify({ name, email, password });
 
