@@ -14,15 +14,11 @@ const User = require('../../Models/User');
 router.get('/', auth, async (req,res) => {
 
     try {
-
         const user = await User.findById(req.user.id).select('-password');
         res.json(user);
-
     }   catch(err){
-
         console.error(err.message);
         res.status(500).send('Server Error')
-
     };
  
 });
@@ -34,10 +30,8 @@ router.get('/', auth, async (req,res) => {
 // @access  Public
 
 router.post('/',[
-
     check('email', "NOTE: Please include a valid email!").isEmail(), 
     check('password', "NOTE: Password is required!").exists() 
-
 ], 
     async (req,res) => {
 
