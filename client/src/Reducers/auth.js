@@ -1,4 +1,11 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR } from "../Actions/types";
+import { 
+    REGISTER_SUCCESS, 
+    REGISTER_FAIL, 
+    USER_LOADED, 
+    AUTH_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL    
+} from "../Actions/types";
 
 // remember below are default values!
 const initalState = {
@@ -26,6 +33,7 @@ export default function(state = initalState, action){
                 // NOTE: if you check auth.js file in API we can see that we get all information EXCEPT password..
             }
         case REGISTER_SUCCESS:
+        case LOGIN_SUCCESS:
             // we if we have a success we get token back so we want user to be logged in right away
             // the token that is returned will be replacing whatever is inside localStorage
             localStorage.setItem('token', payload.token);
@@ -35,8 +43,9 @@ export default function(state = initalState, action){
                 isAuthenticated: true,
                 loading: false
             };
-        case REGISTER_FAIL: // they both do the same however..this looks like an error waiting to happen
+        case REGISTER_FAIL: 
         case AUTH_ERROR:
+        case LOGIN_FAIL:
             // we want to remove anything that is in localStorage because of the fail
             localStorage.removeItem('token');
             return{

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 // we want to call our created function setAlert from our actions folder so we must import
 // whenever we want to use an action we have to pass it thru connect()() at the bottom 
 import { setAlert } from '../../Actions/alert';
@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 // now that we passed the action from connnect()() we can now use props.setAlert to actually use it in this component
 // destructered it! so now we just use setAlert();
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
 
     const [ formData, setFormData ] = useState({
         name: '',
@@ -40,6 +40,10 @@ const Register = ({ setAlert, register }) => {
           console.log(formData, "SUCCESS");          
         };
     };
+
+    if(isAuthenticated){
+      return <Redirect to="/dashboard"/>
+    }
     
     return(
     <Fragment>
@@ -104,10 +108,16 @@ const Register = ({ setAlert, register }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 };
+
+const mapStateToProps = state => ({
+  // state.auth will give us everything however all we need is the  isAuthenticated variable
+  isAuthenticated: state.auth.isAuthenticated
+});
 
 // using connect()() from redux
 // whenever we want to use an action we have to pass it thru connect
 // connect()() takes in two arguements: any state that you want to map, an object with any actions you want to use
-export default connect( null, { setAlert, register } )(Register);
+export default connect( mapStateToProps, { setAlert, register } )(Register);

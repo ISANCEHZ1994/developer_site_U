@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../Actions/auth';
+import { prototype } from 'jsonwebtoken/lib/JsonWebTokenError';
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
 
     const [ formData, setFormData ] = useState({
         email: '',
         password: ''
     });
-    // const [ invalid, setInvalid ] = useState();
-
+    
     const { email, password } = formData;
-
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+    const onChange = e => setFormData({ 
+      ...formData, 
+      [e.target.name]: e.target.value 
+    });
 
     const onSubmit = e => {
         e.preventDefault();
+        login(email, password) // now using the deconstructed function here!
         console.log('SUCCESS')
     };
+
+    // when logged in we want to go somewhere
+    if(isAuthenticated){
+      return <Redirect to="/dashboard"/>
+    }
 
     return (
         <section className="container">
@@ -59,5 +70,18 @@ const Login = () => {
     );
 };
 
-export default Login;
+
+Login.prototype = {
+  // since login is now in this format - we can deconstruct it when passing it thru this component
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool // now that isAuthenticated is added - it must also pass thru this component
+} 
+
+const mapStateToProps = state => ({
+  // state.auth will give us everything however all we need is the  isAuthenticated variable
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+// connected to prop login..
+export default connect(mapStateToProps, { login })(Login);
 

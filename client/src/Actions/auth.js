@@ -5,7 +5,8 @@ import {
     USER_LOADED, 
     AUTH_ERROR, 
     LOGIN_SUCCESS,
-    LOGIN_FAIL 
+    LOGIN_FAIL,
+    LOGOUT
 } from './types';
 // using below to loop thru the errors and show them if any
 import { setAlert } from './alert';
@@ -49,6 +50,9 @@ export const login = ( email, password ) => async dispatch => {
             type: LOGIN_SUCCESS,
             payload: res.data // here is the token returning!
         });
+        // as soon as passes everything we want to load that specfic user..as adding this to the Register User Below!
+        dispatch(loadUser());
+
     } catch (err) {
         const errors = err.response.data.errors;
         if( errors ){
@@ -80,6 +84,9 @@ export const register = ({ name, email, password }) => async dispatch => {
             type: REGISTER_SUCCESS,
             payload: res.data // here is the token returning!
         });
+
+        dispatch(loadUser());
+
     } catch (err) {
         const errors = err.response.data.errors;
         if( errors ){
@@ -92,4 +99,6 @@ export const register = ({ name, email, password }) => async dispatch => {
         });
     };
 };
+
+
 
