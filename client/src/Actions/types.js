@@ -11,6 +11,7 @@ export const REGISTER_FAIL = 'REGISTER_FAIL';
 // will run on success because we've successfully loaded the user or if something doesn't match (error)
 export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';
+
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = "LOGIN_FAIL"
 export const LOGOUT = 'LOGOUT';

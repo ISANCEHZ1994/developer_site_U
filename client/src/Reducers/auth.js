@@ -4,7 +4,8 @@ import {
     USER_LOADED, 
     AUTH_ERROR,
     LOGIN_SUCCESS,
-    LOGIN_FAIL    
+    LOGIN_FAIL,
+    LOGOUT    
 } from "../Actions/types";
 
 // remember below are default values!
@@ -46,6 +47,7 @@ export default function(state = initalState, action){
         case REGISTER_FAIL: 
         case AUTH_ERROR:
         case LOGIN_FAIL:
+        case LOGOUT:
             // we want to remove anything that is in localStorage because of the fail
             localStorage.removeItem('token');
             return{

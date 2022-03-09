@@ -100,5 +100,8 @@ export const register = ({ name, email, password }) => async dispatch => {
     };
 };
 
-
+// Logout - technically clearing the localStorage
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT });
+};
 
