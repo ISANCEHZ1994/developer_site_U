@@ -12,15 +12,13 @@ const User = require('../../Models/User');
 // @desc    Test Route
 // @access  Public 
 router.get('/', auth, async (req,res) => {
-
     try {
-        const user = await User.findById(req.user.id).select('-password');
+        const user = await User.findById(req.user.id).select('-password'); // getting user's information except password..
         res.json(user);
-    }   catch(err){
+    }catch(err){
         console.error(err.message);
         res.status(500).send('Server Error')
-    };
- 
+    }; 
 });
 
 // NOTE: below is taken from users.js (from routes folder)
