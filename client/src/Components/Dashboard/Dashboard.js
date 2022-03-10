@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     
     return(
         <div>
@@ -9,6 +9,10 @@ const Dashboard = () => {
         </div>
     )
 
+};
+
+Dashboard.propTypes = {
+    
 };
 
 export default Dashboard;
