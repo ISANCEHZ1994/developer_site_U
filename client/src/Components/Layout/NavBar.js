@@ -10,8 +10,8 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <ul>
         <li>
           <a onClick={logout} href="#!">
-            <i className="fas fa-sign-out-alt"></i>      
-            <span className="hide-sm"></span>Logout
+            <i className="fas fa-sign-out-alt"/>{' '}    
+            <span className="hide-sm">Logout</span>
           </a>
         </li>        
       </ul>
@@ -21,7 +21,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <ul>
         <li><a href="#!">Developers</a></li>
         <li><Link to="/register">Register</Link></li>
-        <li><Link to="/login">Login</Link></li>=
+        <li><Link to="/login">Login</Link></li>
       </ul>
     );
 
