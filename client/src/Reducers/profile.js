@@ -9,7 +9,7 @@ const initalState = {
 };
 
 export default function(state = initalState, action){
-    console.log('action here from profile reducer => ', action );
+    // console.log('action here from profile reducer => ', action );   
 
     const { type, payload } = action;
 
@@ -19,7 +19,7 @@ export default function(state = initalState, action){
                 ...state,
                 profile: payload,
                 loading: false
-            }
+            }          
         case PROFILE_ERROR:
             return {
                 ...state,
