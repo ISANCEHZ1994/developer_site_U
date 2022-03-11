@@ -22,7 +22,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     // instead of typing formData.name or formData.email - just name or email 
     const { name, email, password, password2 } = formData;
 
-      // we want to keep all other items the same expect for the specifc NAME OF THE INPUT we are changing
+    // we want to keep all other items the same expect for the specifc NAME OF THE INPUT we are changing
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = async e => {

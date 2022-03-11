@@ -5,6 +5,7 @@ import Landing from './Components/Layout/Landing';
 import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
 import Alert from './Components/Layout/Alert';
+import './App.css';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -12,21 +13,17 @@ import setAuthToken from '../src/Utils/setAuthToken';
 import { loadUser } from './Actions/auth';
 import Dashboard from './Components/Dashboard/Dashboard';
 import PrivateRoute from './Components/Routing/PrivateRoute';
-
-import './App.css';
+import CreateProfile from './Components/Profile-Form/CreateProfile';
 
 // we want this to run everytime to check for the token..
 if(localStorage.token){
   setAuthToken(localStorage.token); 
 };
-
 const App = () => {
-
   // when the state updates, this will keep running UNLESS we add a second parameter => []
-  // https://reactjs.org/docs/hooks-effect.html <== check for confirmation
-  
+  // https://reactjs.org/docs/hooks-effect.html <== check for confirmation  
+
   useEffect(() => {
-    // taking the store directly
     store.dispatch(loadUser());
   }, []);
 
@@ -40,9 +37,10 @@ const App = () => {
               {/* outside of the switch because it can only have ROUTES inside */}
               <Alert/>
               <Switch>
-                  <Route exact path= '/login' component={ Login }/>
-                  <Route exact path= '/register' component={ Register }/>
-                  <PrivateRoute exact path= '/dashboard' component={ Dashboard } />
+                  <Route exact path='/login' component={ Login }/>
+                  <Route exact path='/register' component={ Register }/>
+                  <PrivateRoute exact path='/dashboard' component={ Dashboard } />
+                  <PrivateRoute exact path='/create-profile' component={ CreateProfile }/>
               </Switch>
             </section>
           </Fragment>

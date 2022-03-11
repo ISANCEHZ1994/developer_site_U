@@ -6,7 +6,8 @@ import {
     AUTH_ERROR, 
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGOUT
+    LOGOUT,
+    CLEAR_PROFILE
 } from './types';
 // using below to loop thru the errors and show them if any
 import { setAlert } from './alert';
@@ -14,7 +15,6 @@ import setAuthToken from '../Utils/setAuthToken';
 
 // Load User
 export const loadUser = () => async dispatch => {
-
     // checking for token if there at all..created UTIL folder withsetAuthToken file inside!
     // NOTE: we also use this function inside of App.js because the function here only runs ONCE..
     if(localStorage.token){
@@ -84,9 +84,7 @@ export const register = ({ name, email, password }) => async dispatch => {
             type: REGISTER_SUCCESS,
             payload: res.data // here is the token returning!
         });
-
         dispatch(loadUser());
-
     } catch (err) {
         const errors = err.response.data.errors;
         if( errors ){
@@ -102,6 +100,8 @@ export const register = ({ name, email, password }) => async dispatch => {
 
 // Logout - technically clearing the localStorage
 export const logout = () => dispatch => {
-    dispatch({ type: LOGOUT });
+    dispatch({ type: CLEAR_PROFILE });
+    dispatch({ type: LOGOUT });    
 };
+
 

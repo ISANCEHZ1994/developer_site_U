@@ -8,7 +8,6 @@ import {
     LOGOUT    
 } from "../Actions/types";
 
-// remember below are default values!
 const initalState = {
     // we are using localStorage to save user data (store the token)
     // the token recieved from localStorage will be set to state where key 'token:' is
@@ -30,7 +29,7 @@ export default function(state = initalState, action){
                 ...state,
                 isAuthenticated: true,
                 loading: false,
-                user: payload // remember this is the user's information..
+                user: payload
                 // NOTE: if you check auth.js file in API we can see that we get all information EXCEPT password..
             }
         case REGISTER_SUCCESS:

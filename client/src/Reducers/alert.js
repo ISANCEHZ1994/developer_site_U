@@ -7,7 +7,7 @@ const initalState = []; // this state will pertain to alerts
 // objects with an id, a message, alertType: 'success' <== something like this
 
 export default function(state = initalState, action){ 
-    console.log('action from alert reducer',action);
+    
     const { type, payload } = action; // seperating the information inside of the action object
 
     switch (type){ // instead of action.type now just type

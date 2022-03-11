@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR } from '../Actions/types';
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from '../Actions/types';
 
 const initalState = {
     profile: null,
@@ -9,8 +9,7 @@ const initalState = {
 };
 
 export default function(state = initalState, action){
-    // console.log('action here from profile reducer => ', action );   
-
+     
     const { type, payload } = action;
 
     switch(type){
@@ -24,6 +23,13 @@ export default function(state = initalState, action){
             return {
                 ...state,
                 error: payload,
+                loading: false
+            }
+        case CLEAR_PROFILE:
+            return {
+                ...state,
+                profile: null,
+                repos: [],
                 loading: false
             }
         default: 
