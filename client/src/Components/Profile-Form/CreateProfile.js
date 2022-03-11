@@ -1,7 +1,9 @@
 // racfp => shortcut
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createProfile } from '../../Actions/profile';
 
 const CreateProfile = props => {
 

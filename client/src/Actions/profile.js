@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_PROFILE, PROFILE_ERROR, CREATE_PROFILE } from './types';
+import { GET_PROFILE, PROFILE_ERROR } from './types';
 
 // Get Current User Information - Profile
 export const getCurrentProfile = () => async dispatch => {
@@ -40,10 +40,18 @@ export const createProfile = (formData, history, edit = false) => async dispatch
             history.push('/dashboard')
         }
     } catch (error) {
+        const errors = err.response.data.errors;
+
+        if( errors ){
+            errors.forEach( 
+                error =>  dispatch( setAlert(error.msg, 'danger') )
+            );
+        };
+
         dispatch({
             type: PROFILE_ERROR,
             payload: { msg: error.response.statusText, status: error.response.status }
-        });
+        });        
     }
 };
 
