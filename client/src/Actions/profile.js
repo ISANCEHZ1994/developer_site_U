@@ -53,10 +53,29 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 };
 
 export const addExperience = () => async dispatch => {
+    // try {
+    //     const config = {
+    //         headers: {
+    //             'Content-Type' : 'application/json'
+    //         }
+    //     }; 
+    //     const res = await axios.post('/api/profile', formData, config);
+    //     dispatch({
+    //         type: GET_PROFILE,
+    //         payload: res.data
+    //     });
+    //     dispatch(setAlert( edit ? 'Experience Added' : "Profile Created", 'success' ));
 
+    // } catch (error) {
+        
+    // }
 };
 
 export const addEducation = () => async dispatch => {
-
+    try {
+        
+    } catch (error) {
+        
+    }
 };
 

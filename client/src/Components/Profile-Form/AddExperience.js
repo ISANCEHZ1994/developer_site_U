@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addExperience } from '../../Actions/profile';
 
-const AddExperience = props => {
+const AddExperience = ({ addExperience, history }) => {
 
     const [ formData, setFormData ] = useState({
         company: '',
@@ -40,7 +40,11 @@ const AddExperience = props => {
             Add any developer/programming positions that you have had in the past
         </p>
         <small>* = required field</small>
-        <form className="form">
+        {/* addExperiece the action from profile.js/action folder */}
+        <form className="form" onSubmit={ e =>  {
+            e.preventDefault();
+            addExperience(formData, history);
+        }}>
             <div className="form-group">
                 <input 
                     type="text" 
@@ -94,6 +98,7 @@ const AddExperience = props => {
                         }}                                            
                     />
                    {' '} Current Job
+                   { console.log('will change depending on clicking on checkbox', toDateDisabled) }
                 </p>
             </div>
             <div className="form-group">
