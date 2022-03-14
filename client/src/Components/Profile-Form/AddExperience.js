@@ -17,6 +17,7 @@ const AddExperience = props => {
     });
 
     const [ toDateDisabled, toggleDateDisabled ] = useState(false);
+
     const { 
         company,
         title,
@@ -26,6 +27,7 @@ const AddExperience = props => {
         current,
         description
     } = formData;
+
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     return (
@@ -79,13 +81,19 @@ const AddExperience = props => {
             </div>
             <div className="form-group">
                 <p>
+                    {/* its a checkbox so we need to do two things! */}
+                    {/* setFormData used to specifcilly change current in the formData */}                    
                    <input 
                         type="checkbox" 
                         name="current" 
-                        value={ current } 
-                        onChange={ (e) => onChange(e) }
+                        value={ current }
+                        checked={ current } 
+                        onChange={ e => { 
+                            setFormData({ ...formData, current: !current }); 
+                            toggleDateDisabled(!toDateDisabled);
+                        }}                                            
                     />
-                   Current Job
+                   {' '} Current Job
                 </p>
             </div>
             <div className="form-group">
@@ -95,6 +103,7 @@ const AddExperience = props => {
                 name="to" 
                 value={ to }
                 onChange={ (e) => onChange(e) }
+                disabled={ toDateDisabled ? 'DISABLED' : '' } 
                 />
             </div>
             <div className="form-group">
@@ -112,8 +121,8 @@ const AddExperience = props => {
             <Link className="btn btn-light my-1" to='/dashboard'>Go Back</Link>
         </form>
     </Fragment>
-    )
-}
+    );
+};
 
 AddExperience.propTypes = {
     addExperience: PropTypes.func.isRequired

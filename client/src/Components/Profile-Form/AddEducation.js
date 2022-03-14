@@ -70,8 +70,8 @@ const AddEducation = props => {
         <Link className="btn btn-light my-1" to='/dashboard'>Go Back</Link>
       </form>
     </Fragment>
-  )
-}
+  );
+};
 
 AddEducation.propTypes = {}
 
