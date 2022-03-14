@@ -14,6 +14,7 @@ import { loadUser } from './Actions/auth';
 import Dashboard from './Components/Dashboard/Dashboard';
 import PrivateRoute from './Components/Routing/PrivateRoute';
 import CreateProfile from './Components/Profile-Form/CreateProfile';
+import EditProfile from './Components/Profile-Form/EditProfile';
 
 // we want this to run everytime to check for the token..
 if(localStorage.token){
@@ -41,6 +42,7 @@ const App = () => {
                   <Route exact path='/register' component={ Register }/>
                   <PrivateRoute exact path='/dashboard' component={ Dashboard } />
                   <PrivateRoute exact path='/create-profile' component={ CreateProfile }/>
+                  <PrivateRoute exact path='/edit-profile' component={ EditProfile }/>
               </Switch>
             </section>
           </Fragment>
