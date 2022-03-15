@@ -98,7 +98,7 @@ const AddExperience = ({ addExperience, history }) => {
                         }}                                            
                     />
                    {' '} Current Job
-                   { console.log('will change depending on clicking on checkbox', toDateDisabled) }
+                   {/* { console.log('will change depending on clicking on checkbox', toDateDisabled) } */}
                 </p>
             </div>
             <div className="form-group">

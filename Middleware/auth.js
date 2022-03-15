@@ -1,6 +1,5 @@
 const  jwt = require('jsonwebtoken');
 const config = require('config');
-
 // BELOW IS OUR CUSTOM MIDDLEWARE
 
 module.exports = function(req, res, next){
