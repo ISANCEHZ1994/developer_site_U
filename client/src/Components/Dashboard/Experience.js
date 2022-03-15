@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const Experience = ({ experience }) => {
 
-    // experience and education done in different styles!
+    // experience and education done differently to show work
     const experiences = experience.map( exp =>  (
         <tr key={exp._id}>
             <td>{exp.company}</td>

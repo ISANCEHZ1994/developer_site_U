@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const Education = ({ education }) => {
 
-  
+  // education and experience done differently to show work
   return (
     <Fragment>
         <h2 className="my-2">Education Credientials</h2>
