@@ -16,6 +16,8 @@ import CreateProfile from './Components/Profile-Form/CreateProfile';
 import EditProfile   from './Components/Profile-Form/EditProfile';
 import AddExperience from './Components/Profile-Form/AddExperience';
 import AddEducation  from './Components/Profile-Form/AddEducation';
+import Profiles from './Components/Profiles/Profiles';
+// import ProfileItem from './Components/Profiles/ProfileItem';
 import store from './store';
 
 // we want this to run everytime to check for the token..
@@ -42,11 +44,12 @@ const App = () => {
               <Switch>
                   <Route        exact path='/login'          component={ Login }/>
                   <Route        exact path='/register'       component={ Register }/>
+                  <Route        exact path='/profiles'       component={ Profiles }/>
                   <PrivateRoute exact path='/dashboard'      component={ Dashboard } />
                   <PrivateRoute exact path='/create-profile' component={ CreateProfile }/>
                   <PrivateRoute exact path='/edit-profile'   component={ EditProfile }/>
                   <PrivateRoute exact path='/add-education'  component={ AddEducation }/>
-                  <PrivateRoute exact path='/add-experience' component={ AddExperience }/>
+                  <PrivateRoute exact path='/add-experience' component={ AddExperience }/>                  
                   {/* <PrivateRoute exact path='' component={}/> */}
               </Switch>
             </section>
