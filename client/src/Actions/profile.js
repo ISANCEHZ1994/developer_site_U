@@ -1,8 +1,12 @@
 import axios from 'axios';
-import config from 'config';
 import { setAlert } from './alert';
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, ACCOUNT_DELETED } from './types';
-
+import { 
+    GET_PROFILE, 
+    PROFILE_ERROR, 
+    UPDATE_PROFILE,
+    CLEAR_PROFILE,
+    ACCOUNT_DELETED
+ } from './types';
 // To double check on routes go to backend ROUTES/API profile.js file
 
 // Get Current User Information - Profile
@@ -162,12 +166,12 @@ export const deleteEducation = (id) => async dispatch => {
 
 // DELETE ACCOUNT & PROFILE
 export const deleteAccount = () => async dispatch => {
-    if(window.confirm('The following action CANNOT be undone..ARE YOU SURE?')){
+    if( window.confirm('The following action CANNOT be undone..ARE YOU SURE?' )){
         try {
             const res = await axios.delete(`/api/profile`);
             dispatch({ type: CLEAR_PROFILE });  
             dispatch({ type: ACCOUNT_DELETED });
-            dispatch( setAlert('YOUR ACCOUNT HAS CEASED TO EXIST', 'success') );
+            dispatch( setAlert('YOUR ACCOUNT HAS CEASED TO EXIST - GGs') );  
 
         } catch (error) {
             dispatch({

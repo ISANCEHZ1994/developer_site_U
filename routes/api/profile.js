@@ -6,6 +6,7 @@ const auth = require('../../Middleware/auth');
 const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../Models/Profile');
+const Post = require('../../Models/Post');
 const User = require('../../Models/User');
 
 // NOTE: when ACCESSS is Private: we will be using middleware: auth!
@@ -169,6 +170,9 @@ router.get('/user/:user_id', async (req, res) => {
 // @ACCESS  Private
 router.delete('/', auth, async (req, res) => {
     try{
+        // remove user posts
+        await Post.deleteMany({ user: req.user.id });
+
         // remove profile 
         await Profile.findOneAndRemove({ user: req.user.id });
 

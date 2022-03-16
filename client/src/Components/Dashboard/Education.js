@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 // using Moment to format Dates - so that they appear readable
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
+import { deleteEducation } from '../../Actions/profile';
 
-const Education = ({ education }) => {
+const Education = ({ education, deleteEducation }) => {
 
   // education and experience done differently to show work
   return (
@@ -31,7 +32,7 @@ const Education = ({ education }) => {
                             } 
                         </td>
                         <td>
-                            <button className='btn btn-danger'>Delete</button>
+                            <button className='btn btn-danger' onClick={ () => deleteEducation(edu._id) }>Delete</button>
                         </td> 
                     </tr>
                 ))}              
@@ -42,7 +43,8 @@ const Education = ({ education }) => {
 };
 
 Education.propTypes = {
-    education: PropTypes.array.isRequired
+    education: PropTypes.array.isRequired,
+    deleteEducation: PropTypes.func.isRequired
 };
 
-export default connect()(Education);
+export default connect(null, { deleteEducation })(Education);
