@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 // using Moment to format Dates - so that they appear readable
 import Moment from 'react-moment';

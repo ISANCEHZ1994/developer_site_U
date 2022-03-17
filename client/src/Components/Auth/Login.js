@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../Actions/auth';
-import { prototype } from 'jsonwebtoken/lib/JsonWebTokenError';
+// import { prototype } from 'jsonwebtoken/lib/JsonWebTokenError';
 
 const Login = ({ login, isAuthenticated }) => {
 

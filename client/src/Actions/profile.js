@@ -228,7 +228,7 @@ export const deleteEducation = (id) => async dispatch => {
 export const deleteAccount = () => async dispatch => {
     if( window.confirm('The following action CANNOT be undone..ARE YOU SURE?' )){
         try {
-            const res = await axios.delete(`/api/profile`);
+            await axios.delete(`/api/profile`);
             dispatch({ type: CLEAR_PROFILE });  
             dispatch({ type: ACCOUNT_DELETED });
             dispatch( setAlert('YOUR ACCOUNT HAS CEASED TO EXIST - GGs') );  

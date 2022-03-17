@@ -21,8 +21,9 @@ const Dashboard = ({
 
 }) => {
     useEffect( () => {
-         getCurrentProfile() 
-    },[]);  
+        // the function below gives a warning on the browser console..react-hooks/exhaustive-deps
+        getCurrentProfile(); // 
+    },[ getCurrentProfile ]);  
 
     return loading && profile === null ? 
     ( <Spinner/> ) 

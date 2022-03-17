@@ -45,7 +45,7 @@ const EditProfile = ({
             linkedin:       loading || !profile.social ? '' : profile.social.linkedin,
             instagram:      loading || !profile.social ? '' : profile.social.instagram
         });
-    }, [ loading ]);
+    }, [ loading, getCurrentProfile ]);
   
     const {
       company,
@@ -218,4 +218,4 @@ const mapToStateProps = state => ({
     profile: state.profile
 });
 
-export default connect(mapToStateProps, { createProfile, getCurrentProfile })(withRouter(EditProfile));
+export default connect(mapToStateProps, { createProfile, getCurrentProfile })( withRouter(EditProfile ));
