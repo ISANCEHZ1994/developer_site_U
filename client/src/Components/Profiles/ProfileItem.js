@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -25,12 +25,11 @@ const ProfileItem = ({
             </Link>
           </div>
           <ul>
-            { skills.slice( 0, 5 ).map((skill, index) => (
+            { skills.slice( 0, 4 ).map((skill, index) => (
               <li key={ index } className="text-primary">
                 <i className='fas fa-check'></i> { skill }
               </li>
-            ))
-            }
+            ))}
           </ul>
         </div>  
   );
