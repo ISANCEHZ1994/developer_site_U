@@ -153,7 +153,7 @@ export const deleteComment = (postId, commentId) => async dispatch => {
         await axios.delete(`/api/posts/comment/${ postId }/${ commentId }`);
         dispatch({
             type: DELETE_COMMENT,
-            payload: commentId
+            payload: commentId // so we know which comment to remove in state..
         });
         dispatch(setAlert('Comment DELETED', 'success'));
 

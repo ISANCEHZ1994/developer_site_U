@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
@@ -18,13 +18,12 @@ const CommentItem = ({
     auth,
     deleteComment
 }) => {
-
     return (        
-        <div class="post bg-white p-1 my-1">
+        <div className="post bg-white p-1 my-1">
             <div>
                 <Link to={`/profile/${user}`}>
                 <img
-                    class="round-img"
+                    className="round-img"
                     src={ avatar }
                     alt="avatar"
                 />
@@ -32,10 +31,8 @@ const CommentItem = ({
                 </Link>
             </div>
             <div>
-                <p class="my-1">
-                    { text }
-                </p>
-                <p class="post-date">
+                <p className="my-1">{ text }</p>
+                <p className="post-date">
                     Posted on <Moment format='YYYY/MM/DD'>{ date }</Moment>
                 </p>
                 { !auth.loading && user === auth.user._id && (
@@ -44,12 +41,13 @@ const CommentItem = ({
                     </button>
                 )}
             </div>
-        </div>        
-        
+        </div>    
     );
 };
 
-CommentItem.propTypes = {
+CommentItem.propTypes = {    
+    // postId: PropTypes.string.isRequired,    
+    // Warning: Failed prop type: Invalid prop `postId` of type `string` supplied to `CommentItem`, expected `number`.
     postId: PropTypes.number.isRequired,
     comment: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,

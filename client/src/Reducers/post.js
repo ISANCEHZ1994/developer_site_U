@@ -76,6 +76,5 @@ export default function(state = initalState, action){
             };
         default: 
             return state
-    }
-
+    };
 };

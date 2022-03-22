@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../Actions/post';
@@ -39,8 +39,8 @@ PostForm.propTypes = {
     addPost: PropTypes.func.isRequired
 };
 
-const mapStateToProps = () => {
+// const mapStateToProps = () => {
 
-};
+// };
 
 export default connect(null, { addPost })(PostForm);

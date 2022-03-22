@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addComment } from '../../Actions/post';
 
-const CommentForm = ({ postId, addComment, deleteComment }) => {
+const CommentForm = ({ postId, addComment }) => {
 
     const [ text, setText ] = useState('');
 
@@ -28,7 +28,7 @@ const CommentForm = ({ postId, addComment, deleteComment }) => {
                     value={ text }
                     onChange={ e => setText(e.target.value) }
                     required
-                ></textarea>
+                />
                 <input type="submit" className="btn btn-dark my-1" value="Submit" />
             </form>
         </div>
@@ -37,7 +37,6 @@ const CommentForm = ({ postId, addComment, deleteComment }) => {
 
 CommentForm.propTypes = {
     addComment: PropTypes.func.isRequired,
-    // deleteComment: PropTypes.func.isRequired
-};
+}; 
 
 export default connect(null, { addComment })(CommentForm);
