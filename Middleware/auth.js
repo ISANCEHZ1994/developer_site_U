@@ -2,7 +2,7 @@ const  jwt = require('jsonwebtoken');
 const config = require('config');
 // BELOW IS OUR CUSTOM MIDDLEWARE
 
-module.exports = function(req, res, next){
+module.exports = function( req, res, next ){
 
     // Get Token from header
     const token = req.header('x-auth-token');
@@ -21,6 +21,6 @@ module.exports = function(req, res, next){
 
     } catch(err){
         res.status(401).json({ msg: 'Token is not vaild' });
-    }
+    };
 
 };

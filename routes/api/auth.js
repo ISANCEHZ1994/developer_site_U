@@ -11,13 +11,13 @@ const User = require('../../Models/User');
 // @route   GET api/auth
 // @desc    Test Route
 // @access  Public 
-router.get('/', auth, async (req,res) => {
+router.get('/', auth, async ( req, res ) => {
     try {
         const user = await User.findById(req.user.id).select('-password'); // getting user's information except password..
         res.json(user);
     }catch(err){
         console.error(err.message);
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }; 
 });
 
@@ -61,14 +61,12 @@ router.post('/',[
             return res
            .status(400)
            .json({ errors: [{mgs: "INVALID CREDENTIALS"}] });
-        }
-
+        };
         const payload = {
             user: {
                 id: user.id
             }
         };
-
         jwt.sign(
             payload,    
             config.get('jwtSecret'), 
@@ -82,8 +80,8 @@ router.post('/',[
      } catch (error) {
         console.error(error);
         res.status(500).send("SERVER ERROR - perhaps you done goofed?");
-     }; // ends try block here!
-}); // router.post ends here!
+     }; 
+}); 
 
 
 

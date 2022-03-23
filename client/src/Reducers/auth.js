@@ -32,7 +32,7 @@ export default function(state = initalState, action){
                 loading: false,
                 user: payload
                 // NOTE: if you check auth.js file in API we can see that we get all information EXCEPT password..
-            }
+            };
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
             // we if we have a success we get token back so we want user to be logged in right away
@@ -56,7 +56,7 @@ export default function(state = initalState, action){
                 token: null,
                 isAuthenticated: false,
                 loading: false // even thought it failed it still finsihed loading
-            }
+            };
         default:
             return state;
     };

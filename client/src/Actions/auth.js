@@ -34,7 +34,7 @@ export const loadUser = () => async dispatch => {
     };
 };
 
-// login user
+// login User
 export const login = ( email, password ) => async dispatch => {
     const config = {
         headers: {
@@ -52,7 +52,6 @@ export const login = ( email, password ) => async dispatch => {
         });
         // as soon as passes everything we want to load that specfic user..as adding this to the Register User Below!
         dispatch(loadUser());
-
     } catch (err) {
         const errors = err.response.data.errors;
         if( errors ){
@@ -74,17 +73,17 @@ export const register = ({ name, email, password }) => async dispatch => {
             'Content-Type' : 'application/json'
         }
     };
-    // preparing data to send
     const body = JSON.stringify({ name, email, password });
-    try {
-        // we are making a post request that takes in the end point, body and config
-        const res = await axios.post('/api/users', body, config);
-        // if above is successful we want to dispatch action 
+    try {        
+        const res = await axios.post('/api/users', body, config);  
+
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data // here is the token returning!
         });
+
         dispatch(loadUser());
+
     } catch (err) {
         const errors = err.response.data.errors;
         if( errors ){

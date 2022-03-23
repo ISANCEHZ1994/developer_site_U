@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { login } from '../../Actions/auth';
-// import { prototype } from 'jsonwebtoken/lib/JsonWebTokenError';
+import PropTypes from 'prop-types';
 
 const Login = ({ login, isAuthenticated }) => {
 
@@ -13,6 +12,7 @@ const Login = ({ login, isAuthenticated }) => {
     });
     
     const { email, password } = formData;
+    
     const onChange = e => setFormData({ 
       ...formData, 
       [e.target.name]: e.target.value 
@@ -31,10 +31,7 @@ const Login = ({ login, isAuthenticated }) => {
 
     return (
         <section className="container">
-            
-        {/* <div className="alert alert-danger">
-          Invalid credentials
-        </div> */}
+
         <h1 className="large text-primary">Sign In</h1>
         <p className="lead"><i className="fas fa-user"></i> Sign into Your Account</p>
         <form className="form" onSubmit={ e => onSubmit(e) }>

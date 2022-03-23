@@ -57,7 +57,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name="name"
             value={ name }
             onChange={ (e) => onChange(e) }
-            // required
           />
         </div>
         <div className="form-group">
@@ -67,7 +66,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name="email"
             value={ email }
             onChange={ (e) => onChange(e) }
-            // required
           />
           <small className="form-text">
             This site uses Gravatar so if you want a profile image use a Gravatar email
@@ -78,7 +76,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             type="password"
             placeholder="Password"
             name="password"
-            // minLength="6"
             value={ password }
             onChange={ (e) => onChange(e) }
           />
@@ -88,7 +85,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             type="password"
             placeholder="Confirm Password"
             name="password2"
-            // minLength="6"
             value={ password2 }
             onChange={ (e) => onChange(e) }
           />
@@ -119,5 +115,5 @@ const mapStateToProps = state => ({
 
 // using connect()() from redux
 // whenever we want to use an action we have to pass it thru connect
-// connect()() takes in two arguements: any state that you want to map, an object with any actions you want to use
+// connect()() takes in two arguements: any state that you want to map, and object with any actions you want to use
 export default connect( mapStateToProps, { setAlert, register } )(Register);
