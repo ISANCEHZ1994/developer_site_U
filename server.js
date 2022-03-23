@@ -1,7 +1,6 @@
 const express = require('express');
 // NOTE: Body-Parser is now included with Express!
 const connectDB = require('./Config/db');
-
 const app = express();
 
 // Connect Database
@@ -10,10 +9,8 @@ connectDB();
 // Init Middleware
 // New way!
 app.use(express.json({ extended: false }));
-
 // Old way!
 // app.use(bodyParser.json())
-
 app.get('/', (req, res) => res.send('This is the API and it. Is. RUNNING!!'));
 
 //Define Routes
