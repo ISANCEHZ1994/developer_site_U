@@ -17,20 +17,23 @@ import setAuthToken from '../Utils/setAuthToken';
 export const loadUser = () => async dispatch => {
     // checking for token if there at all..created UTIL folder withsetAuthToken file inside!
     // NOTE: we also use this function inside of App.js because the function here only runs ONCE..
-    if(localStorage.token){
-        setAuthToken(localStorage.token); 
-    };
-    // we want to make our request
-    try{
-        const res = await axios.get('/api/auth');
-        dispatch({
-            type: USER_LOADED,
-            payload: res.data
-        });
-    } catch(err){
+    if(localStorage.token){        
+        try{
+            setAuthToken(localStorage.token); 
+            const res = await axios.get('/api/auth');
+            dispatch({
+                type: USER_LOADED,
+                payload: res.data
+            });
+        } catch(err){
+            dispatch({
+                type: AUTH_ERROR            
+            });
+        };
+    } else{
         dispatch({
             type: AUTH_ERROR            
-        })
+        });
     };
 };
 

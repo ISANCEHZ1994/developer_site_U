@@ -22,20 +22,16 @@ router.get('/me', auth, async (req, res) => {
             'user',
             ['name', 'avatar'] // array of fields that we want to bring in from user
         );
-
         if (!profile) { // if there ISN'T a profile
             return res.status(400)
                       .json({ msg: 'Sorry but here is no profile for this user - MAI GAI' })
-        }
-
+        };
         res.json(profile); // if there is a profile we want to see it!
-
     } catch (err) {
         console.error(err.message);
         res.status(500)
            .send('SERVER ERROR - yo git good foo');
-    }
-
+    };
 });
 
 // @ROUTE   POST api/profile
@@ -129,15 +125,11 @@ router.post('/', [auth, [
 // @ACCESS  Public
 router.get('/', async (req, res) => {
     try{
-
         const profiles = await Profile.find().populate('user', ['name', 'avatar']);
         res.json(profiles);
-
     }catch(err){
-
         console.error(err.message);
-        res.status(500).send('server error!! Trying to get all profiles route...');
-        
+        res.status(500).send('server error!! Trying to get all profiles route...');        
     }
 });
 

@@ -9,9 +9,15 @@ const PrivateRoute = ({
     auth: { isAuthenticated, loading }, 
     ...rest 
 }) => (                      // props - we want to check to see if were authenticated or not
-    <Route {...rest} render={ 
-        props => !isAuthenticated && !loading ? (<Redirect to='/login' />) : (<Component {...props}/> )
-    }/>    
+    <Route 
+        {...rest} 
+        render={ 
+            props => !isAuthenticated && !loading ? 
+            ( <Redirect to='/login' /> ) 
+            : 
+            ( <Component {...props}/> )
+        }
+    />    
 );
 
 PrivateRoute.propTypes = {

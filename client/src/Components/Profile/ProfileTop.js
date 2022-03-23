@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
 
 const ProfileTop = ({ 
     profile: {
@@ -58,7 +57,14 @@ const ProfileTop = ({
                 <a href={ social.instagram } target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-instagram fa-2x"></i>
                 </a>
-            )}          
+            )}    
+            <br></br>
+            <br></br>
+            <p>
+                **NOTE: Since we are using Gravatar for the image - 
+                sign up to <strong><a href='https://wordpress.com/'>WordPress</a></strong>
+                with the same email used to sign up
+            </p>
           </div>
     </div>
   )

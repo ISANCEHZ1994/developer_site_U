@@ -21,7 +21,6 @@ router.post('/',[ // within the route we add another parameter - array of things
         .isEmail(), // making sure the email is unique
     check('password', "NOTE: Please enter a password with 6 or more characters!")
         .isLength({ min: 6 }), // making sure the password is longer than 6
-
 ], async (req,res) => {
 
     const errors = validationResult(req);

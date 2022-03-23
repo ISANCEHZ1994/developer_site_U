@@ -1,24 +1,18 @@
 import React, { Fragment, useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux';
+import { Link }     from 'react-router-dom'
+import { connect }  from 'react-redux';
 import { getCurrentProfile, deleteAccount } from '../../Actions/profile';
-import Spinner from '../Layout/Spinner';
-import PropTypes from 'prop-types';
 import { DashboardActions }  from './DashboardActions';
-import Experience from './Experience';
-import Education from './Education';
+import Spinner      from '../Layout/Spinner';
+import PropTypes    from 'prop-types';
+import Experience   from './Experience';
+import Education    from './Education';
 
 const Dashboard = ({ 
     getCurrentProfile,
     deleteAccount, 
-    auth: { 
-        user
-    }, 
-    profile:{ 
-        profile,
-        loading
-    } 
-
+    auth: { user }, 
+    profile:{ profile, loading } 
 }) => {
     useEffect( () => {
         // the function below gives a warning on the browser console..react-hooks/exhaustive-deps
@@ -58,7 +52,7 @@ const Dashboard = ({
             )
         }       
     </Fragment>
-    )
+    );
 };
 
 Dashboard.propTypes = {
