@@ -67,8 +67,8 @@ const ProfileTop = ({
             </p>
           </div>
     </div>
-  )
-}
+  );
+};
 
 ProfileTop.propTypes = {
     profile: PropTypes.object.isRequired
